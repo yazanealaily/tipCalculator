@@ -1,0 +1,104 @@
+body {
+	margin-top: 8em;
+}
+
+.meal-details {
+	margin-top: 5em;
+	height: 25em;
+	border: 1px solid black;
+	padding: 0;
+}
+
+.customer-charges {
+	margin-top: 5em;
+}
+
+.my-earnings {
+	margin-top: 1em;
+}
+
+.customer-charges, .my-earnings {
+	height: 12em;
+	border: 1px solid black;	
+}
+
+h3 {
+	height: 1.7em;
+	color: white;
+	font-size: 1.3em;
+	font-weight: bold;
+	background-color: black;
+	margin-top: 0;
+	padding-top: 0.40em;
+	border-bottom: 1px solid black;
+}
+
+input[type=text] {
+	margin-top: 2em;
+}
+
+form {
+	margin-left: 3em;
+}
+
+.btn {
+	margin-top: 3.4em;
+	margin-left: 1em;
+}
+
+.btn:hover {
+	background-color: black;
+	color: white;
+}
+
+.submit {
+	margin-left: 9.8em;
+}
+
+.customer-charges p:first-of-type {
+	margin-top: 2.5em;
+}
+
+
+.customer-charges p:last-of-type {
+	border-top: 2px solid black;
+	padding-top: 0.5em;
+	font-weight: bold;
+}
+
+.customer-charges p {
+	margin-right: 6.5em;
+	margin-left: 2em;
+}
+
+.my-earnings p:first-of-type {
+	margin-top: 2.5em;
+}
+
+
+.my-earnings p:last-of-type {
+	border-top: 2px solid black;
+	padding-top: 0.5em;
+	font-weight: bold;
+}
+
+.my-earnings p {
+	margin-right: 6em;
+	margin-left: 1em;
+}
+
+.alert, .alert-warning {
+	margin-left: 12em;
+	font-size: 0.8em;
+	height: 1.5em;
+	z-index: 10000;
+	position: absolute;
+	padding: 0 0.5em;
+	background-color: grey;
+	border: none;
+	color: white;
+}
+
+.reset {
+	margin-top: 35em;
+}

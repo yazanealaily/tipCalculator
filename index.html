@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+	<script src="app.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Waitstaff Calculator</title>
+</head>
+
+<body ng-controller="myController">
+
+<div class="container">
+	
+	<!-- Smiley + Title -->
+
+	<div class="row">	
+		
+		<div class="col-md-11 text-center">
+			<h1>Waitstaff Calculator</h1>
+		</div>
+
+	</div>
+	
+	<div class="row">
+	
+		<div class="col-md-offset-2 col-md-4 meal-details">
+			
+			<h3 class="text-center">Enter the Meal Details</h3>
+			
+			<form name="myForm" novalidate>
+				
+				Base Meal Price: $
+  				<input type="text" name="mealPrice" ng-model="mealPrice" required ng-pattern="/[0-9]/"><br>
+  				<div ng-if="myForm.$submitted" ng-messages="myForm.mealPrice.$error">
+    				<span class="alert alert-warning" ng-message="required">Field is required!</span>
+    				<span class="alert alert-warning" ng-message="pattern">Field should be a number!</span>
+				</div>
+
+  				Tax Rate: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp%
+  				<input type="text" name="taxRate" ng-model="taxRate" required ng-pattern="/[0-9]/" ng-maxlength="2"><br>
+  				<div ng-if="myForm.$submitted" ng-messages="myForm.taxRate.$error">
+    				<span class="alert alert-warning" ng-message="required">Field is required!</span>
+    				<span class="alert alert-warning" ng-message="pattern">Field should be a number!</span>
+    				<span class="alert alert-warning" ng-message="maxlength">Field should be two digits!</span>
+				</div>
+
+  				Tip Percentage:&nbsp%
+  				<input type="text" name="tipPct" ng-model="tipPct" required ng-pattern="/[0-9]/" ng-maxlength="2"><br>
+				<div ng-if="myForm.$submitted" ng-messages="myForm.tipPct.$error">
+    				<span class="alert alert-warning" ng-message="required">Field is required!</span>
+    				<span class="alert alert-warning" ng-message="pattern">Field should be a number!</span>
+    				<span class="alert alert-warning" ng-message="maxlength">Field should be two digits!</span>
+				</div>
+
+  				<button class="btn submit" type="submit" ng-click="submit()">Submit</button>
+  				<button class="btn" ng-click="cancel()">Cancel</button>
+
+			</form>
+		</div>
+
+	<div class="col-md-3">
+			
+		<div class="customer-charges">
+			<h3 class="text-center">Customer Charges</h3>
+			<p class="text-right" ng-model="subTotal">Subtotal &nbsp&nbsp&nbsp&nbsp&nbsp {{subTotal | number:2}}</p>
+			<p class="text-right" ng-model="tip">Tip &nbsp&nbsp&nbsp&nbsp&nbsp {{tip | number:2}}</p>
+			<p class="text-right">Total &nbsp&nbsp&nbsp&nbsp&nbsp {{subTotal + tip | number:2}}</p>
+		</div>
+
+		<div class="my-earnings">
+			<h3 class="text-center">My Earnings</h3>
+			<p class="text-right" ng-model="tipTotal">Tip Total &nbsp&nbsp&nbsp&nbsp&nbsp {{tipTotal | number:2}}</p>
+			<p class="text-right" ng-model="mealCount">Meal Count &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{mealCount | number:0 }}</p>
+			<p class="text-right" ng-model="avTip">Av. Tip / Meal &nbsp&nbsp&nbsp&nbsp&nbsp {{avTip | number:2}}</p>
+		</div>
+
+	</div>
+
+	<div class="col-md-1">
+		<button class="btn reset" ng-click="reset()">Reset</button>
+	</div>
+		
+</div>
+	
+</body>
+
+</html>
